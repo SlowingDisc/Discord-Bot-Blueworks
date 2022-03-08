@@ -1,0 +1,371 @@
+{
+  "command": [
+    {
+      "name": "User Joins Server",
+      "perms": [],
+      "actions": [
+        {
+          "name": "set money",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "field": "Cash",
+          "fieldvalue": "0"
+        },
+        {
+          "name": "JoinMessage",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "938883588659761175",
+          "color": "FFFFFF",
+          "title": "Neuer User: ${tempVars.newuser.user.tag}",
+          "url": "",
+          "authorname": "${tempVars.newuser.user.tag}",
+          "authorimageurl": "${tempVars.newuser.user.avatarURL}",
+          "authorlink": "",
+          "description": "${tempVars.newuser.user.tag} ist Dem Server Blueworks Beigetreten!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "set_user_rank_join",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "field": "xp",
+          "fieldvalue": "0"
+        },
+        {
+          "name": "set money_1",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "field": "Bank",
+          "fieldvalue": "0"
+        },
+        {
+          "name": "set_user_rank_join_1",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "field": "rank",
+          "fieldvalue": "1"
+        },
+        {
+          "name": "get_money_join",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "field": "Cash",
+          "varname": "Cash",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "get_money_join_1",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "field": "Bank",
+          "varname": "Bank",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "set total",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "field": "Total",
+          "fieldvalue": "0"
+        },
+        {
+          "name": "total_get_join",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "field": "Total",
+          "varname": "Total",
+          "savevartype": "temp",
+          "vartype": "User"
+        }
+      ],
+      "var": {
+        "user": "newuser"
+      }
+    },
+    {
+      "name": "Any Message",
+      "perms": [],
+      "actions": [
+        {
+          "name": "get_any_m_user",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.anymessagemember.id}",
+          "field": "Cash",
+          "varname": "Cash",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "g_any_m_v_1",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "messageActionRows": [],
+          "varname": "g_any_m_v",
+          "min": "5",
+          "max": "10",
+          "savevartype": "temp"
+        },
+        {
+          "name": "edit_user_v_any_m_1_2",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.anymessagemember.id}",
+          "field": "Cash",
+          "oper": "+",
+          "value": "${tempVars.g_any_m_v}"
+        }
+      ],
+      "var": {}
+    },
+    {
+      "name": "User Kicked",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "kickuser"
+      }
+    },
+    {
+      "name": "User Banned",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "banuser"
+      }
+    },
+    {
+      "name": "Bot Initialization",
+      "perms": [],
+      "actions": [],
+      "var": {}
+    },
+    {
+      "name": "Channel Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "createdchannel"
+      }
+    },
+    {
+      "name": "Channel Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "deletedchannel"
+      }
+    },
+    {
+      "name": "Channel Pins Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatepinschannel"
+      }
+    },
+    {
+      "name": "Channel Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatechannel"
+      }
+    },
+    {
+      "name": "Emoji Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "createdemoji"
+      }
+    },
+    {
+      "name": "Emoji Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "deletedemoji"
+      }
+    },
+    {
+      "name": "Emoji Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatedemoji"
+      }
+    },
+    {
+      "name": "Guild Ban Remove",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Available",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Speaking",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Unavailable",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Message Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Message Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Typing Start",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "User Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Button Interaction",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Select Interaction",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Command Interaction",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    }
+  ]
+}

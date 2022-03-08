@@ -1,0 +1,47 @@
+[{
+  "938883588659761172": "1"
+},{
+  "TicketCreate": "2"
+},{
+  "channelId": "3",
+  "guildId": "4",
+  "deleted": false,
+  "id": "5",
+  "type": "6",
+  "system": false,
+  "content": "7",
+  "authorId": "8",
+  "pinned": false,
+  "tts": false,
+  "nonce": null,
+  "embeds": "9",
+  "components": "10",
+  "attachments": "11",
+  "stickers": "12",
+  "createdTimestamp": 1646673309989,
+  "editedTimestamp": null,
+  "webhookId": null,
+  "groupActivityApplicationId": null,
+  "applicationId": null,
+  "activity": null,
+  "flags": 0,
+  "reference": null,
+  "interaction": null,
+  "cleanContent": "7"
+},"943157499975073822","938883588659761172","950441491778641961","DEFAULT","","943137179104870450",[
+  "13"
+],[],[],[],{
+  "type": "14",
+  "title": "15",
+  "description": "16",
+  "url": null,
+  "color": 16777215,
+  "timestamp": null,
+  "fields": "17",
+  "thumbnail": null,
+  "image": null,
+  "video": null,
+  "author": null,
+  "provider": null,
+  "footer": null
+},"rich","Ticket Erstellen","Zum erstellen von einem\nTicket muss mann einfach\nauf ✉️ Klicken!",[]]

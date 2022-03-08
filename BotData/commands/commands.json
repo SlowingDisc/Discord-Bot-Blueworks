@@ -1,0 +1,527 @@
+{
+  "command": [
+    {
+      "name": "ticketAN",
+      "perms": [],
+      "actions": [
+        {
+          "name": "ticketName",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "943157499975073822",
+          "color": "FFFFFF",
+          "title": "Ticket Erstellen",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Zum erstellen von einem\nTicket muss mann einfach\nauf ✉️ Klicken!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "TicketCreate",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "add_rTicket",
+          "category": "Reaction",
+          "type": "Add Reaction Listener",
+          "reactionActions": {
+            "✉️": [
+              {
+                "name": "create_ticket",
+                "category": "Channel Action",
+                "type": "Create Channel",
+                "messageActionRows": [],
+                "channelname": "Ticket# ${tempVars.TicketCreator.user.tag}",
+                "chancategory": "943146577877405727",
+                "reason": "User: <@${tempVars.TicketCreator.id}> Hat ein Ticket Erstellt",
+                "channeltype": "Text",
+                "savetovariable": "Ticket",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "Update_ticket",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${tempVars.Ticket.id}",
+                "permid": "939175427048628306",
+                "permissions": [
+                  "VIEW_CHANNEL"
+                ],
+                "allow": "Deny"
+              },
+              {
+                "name": "update_true_ticket",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${tempVars.Ticket.id}",
+                "permid": "${tempVars.TicketCreator.id}",
+                "permissions": [
+                  "VIEW_CHANNEL"
+                ],
+                "allow": "Allow"
+              },
+              {
+                "name": "Delete Ticket",
+                "category": "Message",
+                "type": "Send Message",
+                "messageActionRows": [],
+                "channelname": "${tempVars.Ticket.id}",
+                "messagetext": "Wenn du das Ticket Schließen\nwillst dann Klicke auf das. 🔒",
+                "savetovariable": "delet_ticket_message",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "delete_ticket_message_reaction",
+                "category": "Reaction",
+                "type": "Add Reaction Listener",
+                "reactionActions": {
+                  "🔒": [
+                    {
+                      "name": "delete_ticket_channel",
+                      "category": "Channel Action",
+                      "type": "Delete Channel",
+                      "messageActionRows": [],
+                      "channelname": "${tempVars.Ticket.id}",
+                      "reason": "User: <@${tempVars.user_deleted_ticket.id}> Hat Das Ticket Von: <@${tempVars.TicketCreator.id}> gelöscht"
+                    }
+                  ]
+                },
+                "messageActionRows": [],
+                "message": "${tempVars.delet_ticket_message.id}",
+                "duration": "0",
+                "reactionemoji": "🔒",
+                "reactionuser": "user_deleted_ticket",
+                "react": "BOOL_TRUE@@"
+              }
+            ]
+          },
+          "messageActionRows": [],
+          "message": "${tempVars.TicketCreate.id}",
+          "duration": "0",
+          "reactionemoji": "✉️",
+          "reactionuser": "TicketCreator",
+          "react": "BOOL_TRUE@@"
+        }
+      ]
+    },
+    {
+      "name": "bal",
+      "perms": [],
+      "actions": [
+        {
+          "name": "get_user_bal",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "getted_user_bal",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "get_money_bl",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.getted_user_bal.id}",
+          "field": "Cash",
+          "varname": "Cash",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "get_money_bl_1",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.getted_user_bal.id}",
+          "field": "Bank",
+          "varname": "Bank",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "edit_bal_to_0",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.getted_user_bal.id}",
+          "field": "Total",
+          "oper": "-",
+          "value": "${tempVars.Total}"
+        },
+        {
+          "name": "get_total_bal",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.getted_user_bal.id}",
+          "field": "Total",
+          "oper": "+",
+          "value": "${tempVars.Cash}"
+        },
+        {
+          "name": "get_total_bal_1",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.getted_user_bal.id}",
+          "field": "Total",
+          "oper": "+",
+          "value": "${tempVars.Bank}"
+        },
+        {
+          "name": "Get_total_f_bal",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.getted_user_bal.id}",
+          "field": "Total",
+          "varname": "Total",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "balance_N",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "authorname": "${dbsVars.CommandAuthor.user.tag}",
+          "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
+          "authorlink": "",
+          "description": "💵Cash💵💰: ${tempVars.Cash}\n\n🏦Bank🏦: ${tempVars.Bank}\n\n💰Total💰: ${tempVars.Total}",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "set",
+      "perms": [],
+      "actions": [
+        {
+          "name": "money_money_set",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "money_money_variable_set",
+          "vartype": "Number",
+          "savevartype": "temp",
+          "param": "1"
+        },
+        {
+          "name": "get_user_set_money",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "User_set_money",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "set_money_set",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.User_set_money.id}",
+          "field": "Cash",
+          "fieldvalue": "${tempVars.money_money_variable_set}"
+        }
+      ]
+    },
+    {
+      "name": "with",
+      "actions": [
+        {
+          "name": "get_value_with",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "get_value_with",
+          "vartype": "Number",
+          "savevartype": "temp",
+          "param": "1"
+        },
+        {
+          "name": "get_money_bl_1_1",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Bank",
+          "varname": "Bank",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "get_money_bl_1_1_1_1",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Cash",
+          "varname": "Cash",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "edit_with",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Bank",
+          "oper": "-",
+          "value": "${tempVars.get_value_with}"
+        },
+        {
+          "name": "edit_with_2",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Cash",
+          "oper": "+",
+          "value": "${tempVars.get_value_with}"
+        },
+        {
+          "name": "send_m_with",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "${dbsVars.CommandAuthor.user.tag} du hast ${tempVars.get_value_with} Geld von der Bank abgehoben!",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "dep",
+      "actions": [
+        {
+          "name": "get_value_with_1",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "get_value_dep",
+          "vartype": "Number",
+          "savevartype": "temp",
+          "param": "1"
+        },
+        {
+          "name": "get_money_bl_1_1_1",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Cash",
+          "varname": "Cash",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "get_money_bl_1_1_2",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Bank",
+          "varname": "Bank",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "edit_with_1",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Cash",
+          "oper": "-",
+          "value": "${tempVars.get_value_dep}"
+        },
+        {
+          "name": "edit_with_2_1",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Bank",
+          "oper": "+",
+          "value": "${tempVars.get_value_dep}"
+        },
+        {
+          "name": "send_m_with_1",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "${dbsVars.CommandAuthor.user.tag} du hast ${tempVars.get_value_dep} Geld auf die Bank gepackt!",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "pay",
+      "actions": [
+        {
+          "name": "get_pay_value",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "Get_pay_value",
+          "vartype": "Number",
+          "savevartype": "temp",
+          "param": "1"
+        },
+        {
+          "name": "get_user_pay",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "get_user_pay",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "get_user_data_pay",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Cash",
+          "varname": "Cash",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "get_user_data_pay_2",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.get_user_pay.id}",
+          "field": "Cash",
+          "varname": "Cash",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "edit_pay_user",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Cash",
+          "oper": "-",
+          "value": "${tempVars.Get_pay_value}"
+        },
+        {
+          "name": "edit_pay_user_2",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.get_user_pay.id}",
+          "field": "Cash",
+          "oper": "+",
+          "value": "${tempVars.Get_pay_value}"
+        },
+        {
+          "name": "send_m_with_1_2",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "${dbsVars.CommandAuthor.user.tag} du hast dem User ${tempVars.get_user_pay.user.tag} ${tempVars.Get_pay_value} Geld geschenkt!",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "work",
+      "actions": [
+        {
+          "name": "get_user_data_pay_1",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Cash",
+          "varname": "Cash",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "gn_work_value",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "messageActionRows": [],
+          "varname": "gn_work_value",
+          "min": "10",
+          "max": "100",
+          "savevartype": "temp"
+        },
+        {
+          "name": "edit_work",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Cash",
+          "oper": "+",
+          "value": "${tempVars.gn_work_value}"
+        },
+        {
+          "name": "send_m_with_1_2_1",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "${dbsVars.CommandAuthor.user.tag} du hast ${tempVars.gn_work_value} Geld verdient!",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "help_message",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "Alle Commands",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "- bal [Spieler] (zeigt Geld von dem Spieler an)\n- with [Geld] (nehme Geld aus deiner bank)\n- dep [Geld] (packe Geld in die Bank)\n- pay [Geld] [Spieler] (verschenke Geld an einen Spieler)\n- work (verdiene Geld)\n\nInfo: verdiene Geld durchs schreiben",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}
